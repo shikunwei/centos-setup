@@ -25,7 +25,7 @@ curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2
 sudo service docker start && systemctl enable docker
 
 # Step 6: install docker-compose
-curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
@@ -44,7 +44,7 @@ docker-compose -v
 docker swarm init
 
 #Uninstall docker commands:
-#   $ docker container stop $(docker container ls -aq) & docker container rm $(docker container ls -aq)
+#   $ docker container stop $(docker container ls -aq) && docker container rm $(docker container ls -aq)
 #   $ docker system prune
 #   $ docker system prune --volumes
 #   $ docker image prune -a
