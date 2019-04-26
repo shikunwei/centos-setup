@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Prerequisites: 3 nodes
+#   $ vi /etc/hosts 
+# eg:
+# 10.168.141.7 k8s-master
+# 10.168.141.8 node01
+# 10.168.141.9 node02
+
+yum update
+
 # dissable SELinux
 setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
@@ -32,12 +41,12 @@ yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 systemctl start kubelet && systemctl enable kubelet
 
 # check if docker is using  "cgroupfs"
-#docker info | grep -i cgroup
+#   $ docker info | grep -i cgroup
 # update config
-#sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
-#systemctl daemon-reload
-#systemctl restart kubelet
+#   $ sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+#   $ systemctl daemon-reload
+#   $ systemctl restart kubelet
 
-#setup master (replace XXX with host IP)
-#kubeadm init --apiserver-advertise-address=XXX.XXX.XXX.XXX --pod-network-cidr=10.244.0.0/16 
-#Copy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.
+# setup master (replace XXX with host IP)
+#   $ kubeadm init --apiserver-advertise-address=XXX.XXX.XXX.XXX --pod-network-cidr=10.244.0.0/16 
+# Copy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.

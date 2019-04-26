@@ -30,21 +30,21 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # Step 7: install docker-machine
-#base=https://github.com/docker/machine/releases/download/v0.16.0
-#curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine
-#sudo install /tmp/docker-machine /usr/local/bin/docker-machine
-#sudo ln -sf /usr/local/bin/docker-machine /usr/bin/docker-machine
+# base=https://github.com/docker/machine/releases/download/v0.16.0
+#   $ curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine
+#   $ sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+#   $ sudo ln -sf /usr/local/bin/docker-machine /usr/bin/docker-machine
 
 # Installation verification
 docker version
 docker-compose -v
-#docker-machine -v
+#   $ docker-machine -v
 
 #
 physical_ip=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1 -d '/'`
-sudo docker swarm init --advertise-addr ${physical_ip}
+#   $ sudo docker swarm init --advertise-addr ${physical_ip}
 
-#Uninstall docker commands:
+# Uninstall docker commands:
 #   $ docker container stop $(docker container ls -aq) && docker container rm $(docker container ls -aq)
 #   $ docker system prune
 #   $ docker system prune --volumes
