@@ -9,7 +9,7 @@ sudo yum remove -y docker docker-ce docker-client docker-client-latest docker-co
 
 # Step 1: Install some necessary system tools
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-#sudo yum install -y  http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.74-1.el7.noarch.rpm
+sudo yum install -y  http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.74-1.el7.noarch.rpm
 
 # Step 2: Add the software source information
 sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
@@ -19,7 +19,7 @@ sudo yum makecache fast
 sudo yum install -y docker-ce
 
 # Step 4: Accerlerate Docker by using Daocloud mirror
-curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
+#curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
 
 # Step 5: Activate the Docker service and enable auto start when power on
 sudo service docker start && systemctl enable docker
