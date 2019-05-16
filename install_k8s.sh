@@ -7,7 +7,7 @@
 # 10.168.141.8 node01
 # 10.168.141.9 node02
 
-yum update
+yum -y update
 
 # dissable SELinux
 setenforce 0
