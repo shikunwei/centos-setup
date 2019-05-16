@@ -15,7 +15,7 @@ setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 # dissable off swap
-sed -i 's%^/dev/mapper/rootvg-swap swap%#&%g' /etc/fstab
+sed -i 's%^/dev/mapper/centos-swap swap%#&%g' /etc/fstab
 swapoff -a
 
 # load module
