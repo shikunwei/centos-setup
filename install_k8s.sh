@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -e
 # Prerequisites: 3 nodes
 #   $ vi /etc/hosts 
 # eg:
