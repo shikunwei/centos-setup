@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # This script is meant for quick & easy setup centos:
 # Tested on minimal version of centos 7
