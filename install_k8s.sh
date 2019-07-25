@@ -58,3 +58,4 @@ systemctl start kubelet && systemctl enable kubelet
 # setup master (replace XXX with host IP)
 #   $ kubeadm init --apiserver-advertise-address=XXX.XXX.XXX.XXX --pod-network-cidr=10.244.0.0/16 
 # Copy the 'kubeadm join ... ... ...' command to your text editor. The command will be used to register new nodes to the kubernetes cluster.
+#   kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
