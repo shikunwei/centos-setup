@@ -26,9 +26,9 @@ curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2
 sudo service docker start && systemctl enable docker
 
 # Step 6: install docker-compose
-curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
+#curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#sudo chmod +x /usr/local/bin/docker-compose
+#sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # Step 7: install docker-machine
 # base=https://github.com/docker/machine/releases/download/v0.16.0
@@ -38,7 +38,7 @@ sudo ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
 
 # Installation verification
 docker version
-docker-compose -v
+#docker-compose -v
 #   $ docker-machine -v
 
 #
