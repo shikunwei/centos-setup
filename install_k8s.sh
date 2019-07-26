@@ -15,14 +15,13 @@ setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 # dissable off swap
-sed -i 's%^/dev/mapper/centos-swap swap%#&%g' /etc/fstab
+sed -i 's%^/dev/mapper/centos.*swap%#&%g' /etc/fstab
 swapoff -a
 
 # load module
 modprobe br_netfilter
 # set iptables
-echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables
-echo '1' > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables && echo '1' > /proc/sys/net/bridge/bridge-nf-call-ip6tables
 # To make it persistent it is better to change the sysctl configuration. For example in Centos 7 you have to change /usr/lib/sysctl.d/00-system.conf 
 
 # add yum source
