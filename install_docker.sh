@@ -42,7 +42,7 @@ docker version
 #   $ docker-machine -v
 
 #
-physical_ip=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1 -d '/'`
+# physical_ip=`ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1 -d '/'`
 #   $ sudo docker swarm init --advertise-addr ${physical_ip}
 
 # Uninstall docker commands:
