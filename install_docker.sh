@@ -20,7 +20,7 @@ sudo yum install -y docker-ce-18.09.8 docker-ce-cli-18.09.8
 
 
 # Step 4: Accerlerate Docker by using Daocloud mirror
-curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
+# curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io
 
 # Step 5: Activate the Docker service and enable auto start when power on
 sudo service docker start && systemctl enable docker
