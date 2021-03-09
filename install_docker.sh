@@ -16,7 +16,7 @@ sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/cen
 
 # Step 3: Update and install Docker-CE
 sudo yum makecache fast
-sudo yum install -y docker-ce-18.09.8 docker-ce-cli-18.09.8
+sudo yum install -y docker-ce docker-ce-cli
 
 
 # Step 4: Accerlerate Docker by using Daocloud mirror
