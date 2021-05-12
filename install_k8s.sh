@@ -25,7 +25,7 @@ echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables && echo '1' > /proc/sys/
 # To make it persistent it is better to change the sysctl configuration. For example in Centos 7 you have to change /usr/lib/sysctl.d/00-system.conf 
 
 # add yum source
-cat '''[kubernetes]
+echo '''[kubernetes]
 name=Kubernetes
 baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
 enabled=1
