@@ -15,8 +15,8 @@ setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 # dissable off swap
-# sed -i 's%^/dev/mapper/centos.*swap%#&%g' /etc/fstab
-# swapoff -a
+sed -i 's%^/dev/mapper/centos.*swap%#&%g' /etc/fstab
+swapoff -a
 
 # load module
 modprobe br_netfilter
@@ -25,15 +25,16 @@ echo '1' > /proc/sys/net/bridge/bridge-nf-call-iptables && echo '1' > /proc/sys/
 # To make it persistent it is better to change the sysctl configuration. For example in Centos 7 you have to change /usr/lib/sysctl.d/00-system.conf 
 
 # add yum source
-echo '''[kubernetes]
+cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
 name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
 enabled=1
 gpgcheck=1
 repo_gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-exclude=kubelet kubeadm kubectl
-''' > /etc/yum.repos.d/kubernetes.repo
+gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+exclude=kube*
+EOF
 
 sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
