@@ -15,8 +15,8 @@ setenforce 0
 sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 # dissable off swap
-sed -i 's%^/dev/mapper/centos.*swap%#&%g' /etc/fstab
-swapoff -a
+# sed -i 's%^/dev/mapper/centos.*swap%#&%g' /etc/fstab
+# swapoff -a
 
 # load module
 modprobe br_netfilter
@@ -36,7 +36,7 @@ gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors
 exclude=kube*
 EOF
 
-yum install -y kubelet-1.15.1-0 kubeadm-1.15.1-0 kubectl-1.15.1-0 --disableexcludes=kubernetes
+sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
 systemctl start kubelet && systemctl enable kubelet
 
